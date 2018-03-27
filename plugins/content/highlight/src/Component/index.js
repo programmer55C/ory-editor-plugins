@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import Input from "./Input"
 import SyntaxHighlight from "react-syntax-highlighter"
 import { light } from "react-syntax-highlighter/styles/prism"
-
-class Highlight extends Component {
+import Display from './index.render'
+class Form extends Component {
     constructor(props) {
         super(props)
     }
@@ -23,20 +23,16 @@ class Highlight extends Component {
         const { text, language, lineNumbers } = state
 
         return (
-            <div>
-                { readOnly 
-                    ? (<SyntaxHighlight language={language || "text"}
-                                        showLineNumbers={lineNumbers || false}
-                                        style={light}>
-                            {text || "Switch into edit mode then paste your sourcecode here..."}
-                      </SyntaxHighlight>)
+            
+                 readOnly 
+                    ? (<Display {...this.props} />)
                     : <Input handleValueChange={this.handleValueChange.bind(this)}
                              text={text}
                              language={language}
-                             lineNumbers={lineNumbers}/> }
-            </div>
+                             lineNumbers={lineNumbers}/> 
+            
         )
     }
 }
 
-export default Highlight
+export default Form
