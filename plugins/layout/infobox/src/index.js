@@ -1,15 +1,9 @@
 import React from 'react'
 import uuid from 'uuid'
-
+import {InfoboxPlugin} from './InfoboxPlugin'
 // You are obviously not limited to material-ui, but we really enjoy
 // the material-ui icons!
 import InfoIcon from 'material-ui-icons/Info'
-
-const InfoboxPlugin = ({ children }) => (
-    <div className="ory-editor-plugins-infobox">
-        { children }
-    </div>
-)
 
 export default ({ defaultPlugin }) => ({
     Component: InfoboxPlugin,
